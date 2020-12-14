@@ -25,7 +25,7 @@ app.use(express.json());
 
 // Serve up static assets
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("/api"));
+  app.use(express.static("/graphql"));
 }
 
 app.get("*", (req, res) => {
