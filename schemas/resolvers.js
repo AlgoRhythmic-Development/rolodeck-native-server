@@ -16,6 +16,9 @@ const resolvers = {
 
         // return userData;
         return data;
+      } else {
+        const resContext = context;
+        return resContext;
       }
       throw new AuthenticationError("Not logged in");
     },
