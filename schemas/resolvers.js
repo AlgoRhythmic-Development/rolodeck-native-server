@@ -6,13 +6,16 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        console.log(context.user);
+        const context = context.user;
         const userData = await User.findOne({ _id: context.user._id })
           .select("-__v -password")
           .populate("cards")
           .populate("collectedCards");
 
-        return userData;
+        const data = { resContext: context, resData: userData };
+
+        // return userData;
+        return data;
       }
       throw new AuthenticationError("Not logged in");
     },
