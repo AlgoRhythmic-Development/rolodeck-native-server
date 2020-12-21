@@ -12,13 +12,10 @@ const resolvers = {
           .populate("cards")
           .populate("collectedCards");
 
-        const data = { resContext: context, resData: userData };
+        const data = { resContext: context, userData: userData };
 
         // return userData;
         return data;
-      } else {
-        const resContext = context;
-        return resContext;
       }
       throw new AuthenticationError("Not logged in");
     },
