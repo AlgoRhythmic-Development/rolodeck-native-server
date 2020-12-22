@@ -11,8 +11,7 @@ const resolvers = {
           .populate("cards")
           .populate("collectedCards");
 
-        // return userData;
-        return context;
+        return userData;
       }
       throw new AuthenticationError("Not logged in");
     },
