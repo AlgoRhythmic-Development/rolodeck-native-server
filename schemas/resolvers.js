@@ -30,11 +30,12 @@ const resolvers = {
     users: async () => {
       return await User.find().select("-__v -password").populate("cards");
     },
-    //get a user by username
-    user: async (parent, { username }) => {
-      return User.findOne({ username })
+    //get a user by _id
+    user: async (parent, { _id }) => {
+      return User.findOne({ _id })
         .select("-__v -password")
-        .populate("cards");
+        .populate("cards")
+        .password("collectedCards");
     },
     //get a card by id
     card: async (parent, { _id }) => {
