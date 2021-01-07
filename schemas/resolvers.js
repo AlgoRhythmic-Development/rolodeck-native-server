@@ -35,7 +35,7 @@ const resolvers = {
       return User.findOne({ _id: _id })
         .select("-__v -password")
         .populate("cards")
-        .password("collectedCards");
+        .populate("collectedCards");
     },
     //get a card by id
     card: async (parent, { _id }) => {
