@@ -32,7 +32,7 @@ const resolvers = {
     },
     //get a user by _id
     user: async (parent, { _id }) => {
-      return User.findOne({ _id })
+      return User.findOne({ _id: _id })
         .select("-__v -password")
         .populate("cards")
         .password("collectedCards");
