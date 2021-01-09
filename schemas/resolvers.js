@@ -41,10 +41,10 @@ const resolvers = {
       const card = await Card.find({ _id: _id }).select("-__v");
       return card;
     },
-    //get cards by username
-    cards: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Card.find(params);
+    //get cards by _id
+    cards: async (parent, { _id }) => {
+      // const params = _id ? { _id } : {};
+      return Card.find({ _id: _id });
     },
   },
   Mutation: {
@@ -71,7 +71,7 @@ const resolvers = {
       if (context.user) {
         const card = await Card.create({
           ...args,
-          username: context.user.username,
+          _id: context.user.username,
         });
 
         await User.findByIdAndUpdate(
