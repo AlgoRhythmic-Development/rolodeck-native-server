@@ -51,12 +51,6 @@ const resolvers = {
       const params = username ? { username } : {};
       return Card.find(params);
     },
-    //get cards by card's email
-    userCards: async (parent, { name }) => {
-      const cards = await Card.find({ name: name }).select("-__v");
-
-      return cards;
-    },
   },
   Mutation: {
     addUser: async (parent, args) => {
