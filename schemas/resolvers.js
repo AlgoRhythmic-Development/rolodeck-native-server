@@ -37,6 +37,11 @@ const resolvers = {
         .populate("cards")
         .populate("collectedCards");
     },
+    userCards: async (parent, { _id }) => {
+      return User.findOne({ _id: _id })
+        .select("-__v -password")
+        .populate("cards");
+    },
     //get a card by id
     card: async (parent, { _id }) => {
       const card = await Card.find({ _id: _id }).select("-__v");
