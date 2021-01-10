@@ -38,7 +38,7 @@ const resolvers = {
     },
     //get a card by id
     card: async (parent, { _id }) => {
-      const card = await Card.find({ _id: _id }).select("-__v");
+      const card = await Card.findOne({ _id: _id }).select("-__v");
       return card;
     },
     //get cards by _id
