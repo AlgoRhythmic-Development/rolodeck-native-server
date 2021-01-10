@@ -42,9 +42,9 @@ const resolvers = {
       return card;
     },
     //get cards by _id
-    cards: async (parent, { _id }) => {
+    cards: async () => {
       // const params = _id ? { _id } : {};
-      return Card.find({ _id: _id });
+      return Card.find().select("-__v");
     },
   },
   Mutation: {
