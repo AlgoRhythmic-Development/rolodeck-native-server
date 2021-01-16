@@ -71,7 +71,6 @@ const resolvers = {
       if (context.user) {
         const card = await Card.create({
           ...args,
-          _id: context.user.username,
         });
 
         await User.findByIdAndUpdate(

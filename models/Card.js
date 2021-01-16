@@ -5,12 +5,15 @@ const cardSchema = new Schema(
     logoUrl: {
       type: String,
       unique: false,
+      default: "",
     },
     companyName: {
       type: String,
+      default: "",
     },
     tagline: {
       type: String,
+      default: "",
     },
     name: {
       type: String,
@@ -22,6 +25,7 @@ const cardSchema = new Schema(
     },
     website: {
       type: String,
+      default: "",
     },
     phone: {
       type: String,
@@ -37,10 +41,6 @@ const cardSchema = new Schema(
       type: String,
       required: true,
       match: [/.+@.+\..+/, "Must match an email address!"],
-    },
-    username: {
-      type: String,
-      required: true,
     },
   },
   {
