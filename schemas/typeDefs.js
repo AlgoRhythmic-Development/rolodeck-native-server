@@ -47,6 +47,7 @@ const typeDefs = gql`
     cards: [Card]
     card(_id: ID!): Card
     myCollection: User
+    cardSearch(input: CardInput): [Card]
   }
 
   type Mutation {

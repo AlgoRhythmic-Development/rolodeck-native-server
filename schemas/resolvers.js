@@ -46,6 +46,10 @@ const resolvers = {
       // const params = _id ? { _id } : {};
       return Card.find().select("-__v");
     },
+    cardSearch: async (parent, { input }) => {
+      const card = await Card.findOne({ input });
+      return card;
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {
